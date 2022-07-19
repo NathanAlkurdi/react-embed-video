@@ -1,0 +1,58 @@
+{
+    "root": true,
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:jest-dom/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint",
+      "react",
+      "react-hooks",
+      "jest-dom"
+    ],
+    "ignorePatterns": [
+      "**/dist",
+      "**/node_modules",
+      "**/.yarn"
+    ],
+    "rules": {
+      "quotes": ["error", "single"],
+      "semi": ["error", "never"],
+      "dot-notation": ["error"],
+      "prefer-destructuring": ["error", { "array": true, "object": true }, { "enforceForRenamedProperties": false} ],
+      "rest-spread-spacing": "error",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-explicit-any": "off"
+    },
+    "overrides": [
+      {
+       "files": ["*.ts", "*.tsx"],
+        "extends": [
+          "plugin:@typescript-eslint/recommended",
+          "plugin:@typescript-eslint/eslint-recommended"
+        ],
+        "rules": {
+          "@typescript-eslint/explicit-module-boundary-types": "off"
+        }
+      }
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "globals": {
+      "JSX": true
+    }
+  }
