@@ -5042,6 +5042,7 @@ __metadata:
     parcel: ^2.6.2
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-embed-video: "workspace:^"
   languageName: unknown
   linkType: soft
 
@@ -5982,7 +5983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-embed-video@workspace:.":
+"react-embed-video@workspace:., react-embed-video@workspace:^":
   version: 0.0.0-use.local
   resolution: "react-embed-video@workspace:."
   dependencies:

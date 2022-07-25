@@ -7,6 +7,7 @@ An easy to slot in component that renders a video embed of popular streaming ser
 
 Currently supports the following services:
 - YouTube
+- Vimeo
 
 Definition of support means a service's URL is recognized, transformed to an embed URL (if not already), and passed to a basic iframe amongst other configurations. Extended embed support from services such as advanced Twitch iframes, require additional `.js` libraries to be loaded. Apart from that, any service's url can be used if URL processing is disabled.
 

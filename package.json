@@ -1,7 +1,7 @@
 {
   "name": "react-embed-video",
-  "version": "0.1.0",
-  "description": "An easy to slot in component that renders a video embed from popular streaming services.",
+  "version": "0.2.0",
+  "description": "An easy to slot in component that renders a video embed of popular streaming services.",
   "author": "Nathan Al-Kurdi",
   "license": "MIT",
   "packageManager": "yarn@3.2.1",

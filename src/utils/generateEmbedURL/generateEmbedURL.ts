@@ -1,5 +1,5 @@
 import { getDomainFromURL } from '..'
-import { STREAMING_SERVICES_URLS } from '../constants'
+import { STREAMING_SERVICES, STREAMING_SERVICES_URLS } from '../constants'
 import type { ServiceUtils } from '../types'
 
 /** getUtilsFromDomain
@@ -33,7 +33,12 @@ export const generateEmbedURL = (url: string): string | null => {
     const videoID = utils ? url.match(utils.regex) : null
 
     if (videoID && utils) {
-        return utils.embed.replace('%s', videoID[1])
+        switch(utils.type) {
+            case STREAMING_SERVICES.YOUTUBE:
+                return utils.embed.replace('%s', videoID[1])
+            case STREAMING_SERVICES.VIMEO:
+                return utils.embed.replace('%s', videoID[4])
+        }
     }
 
     return null
