@@ -1,4 +1,4 @@
-import { getDomainFromURL } from '..'
+import { getDomainFromURL } from '../getDomainFromURL/getDomainFromURL'
 import { STREAMING_SERVICES, STREAMING_SERVICES_URLS } from '../constants'
 import type { ServiceUtils } from '../types'
 

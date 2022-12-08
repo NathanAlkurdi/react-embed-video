@@ -1,22 +1,33 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { name } = require('./package.json')
 const path = require('path')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TypescriptDeclarationPlugin = require('typescript-declaration-webpack-plugin')
 
 module.exports = [
     {
+        mode: process.env.NODE_ENV || 'development',
         context: path.resolve('./src'),
         devtool: 'source-map',
         entry: './index.ts',
         output: {
-            filename: 'main.js',
+            clean: true,
+            filename: 'index.js',
+            library: {
+                name: name,
+                type: 'umd'
+            },
             path: path.resolve(__dirname, 'dist'),
-            clean: true
+        },
+        externals: {
+            'react': 'react',
+            'react-dom': 'reactDOM',
         },
         module : {
             rules: [
                 {
-                    test: /\.[jt]sx?$/,
+                    test: /\.(jsx|js)$/,
                     exclude: /node_modules/,
                     use: {
                         loader: 'babel-loader',
@@ -24,6 +35,11 @@ module.exports = [
                             configFile: path.resolve(__dirname, 'babel.config.js')
                         }
                     }
+                },
+                {
+                    test: /\.(ts|tsx)$/,
+                    exclude: /node_modules/,
+                    use: ['ts-loader']
                 },
                 {
                     test: /\.(c|le)ss$/,
@@ -41,7 +57,10 @@ module.exports = [
             ]
         },
         plugins: [
-            new MiniCssExtractPlugin()
+            new MiniCssExtractPlugin(),
+            new TypescriptDeclarationPlugin({
+                removeComments: false
+            })
         ],
         resolve: {
             extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '...']

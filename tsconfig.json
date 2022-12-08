@@ -3,29 +3,30 @@
     "exclude": [
       "dist",
       "node_modules",
-      "*.test.tsx",
-      "*.test.ts"
+      "src/**/*.test.tsx",
+      "src/**/*.test.ts",
+      "src/**/*.stories.tsx",
+      "src/**/*.stories.ts"
     ],
     "compilerOptions": {
       "target": "es2015",
       "module": "esnext",
-      "allowSyntheticDefaultImports": true,
-      "lib": ["dom", "esnext"],
-      "emitDeclarationOnly": true,
+      "moduleResolution": "node",
+      "jsx": "react",
+      "allowJs": true,
       "importHelpers": true,
       "declaration": true,
       "sourceMap": true,
-      "rootDir": "./src",
       "outDir": "./dist",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      /* Type-Checking */
       "strict": true,
-      "noImplicitReturns": true,
+      "allowSyntheticDefaultImports": true,
       "noFallthroughCasesInSwitch": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
-      "moduleResolution": "node",
-      "jsx": "react",
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
+      "noImplicitReturns": true,
+      "forceConsistentCasingInFileNames": true
     }
   }

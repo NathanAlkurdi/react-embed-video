@@ -22,22 +22,22 @@ export type EmbedVideoProps = {
   transformation to valid embed URL. Instead will fill
   in iframe src attribute with url. */
   disableURLProcessing?: boolean
-  /* Height of iframe such as '1000' */
-  height?: number
+  /* Height of iframe such as '1000' or '50%' */
+  height?: number | string
   /* Adds support for lazy loading of iframe.
   When true, iframe will load only when it comes
   near the visible viewport, the distance being
   defined by the browser. This is an experimental
   attribute and support is limited to newer
-  versions. */
+  browsers. */
   lazy?: boolean
   /* Used for title attribute and can assist with
   accessibility. */
   title?: string
   /* URL of video to embed. Currently recognizes Youtube. */
   url: string
-  /* Width of iframe such as '1000' */
-  width?: number
+  /* Width of iframe such as '1000' or '50%' */
+  width?: number | string
 }
 
 export const EmbedVideo = (props : EmbedVideoProps) => {
@@ -63,14 +63,13 @@ export const EmbedVideo = (props : EmbedVideoProps) => {
   useEffect(() => {
     if (disableURLProcessing) {
       setSource(url)
-    } else {
+    } else if (url) {
       processURL(url)
     }
     
   }, [disableURLProcessing, url])
 
   return source ? (
-    <>
       <iframe
         src={source}
         height={height ? height : DEFAULT_HEIGHT}
@@ -79,6 +78,5 @@ export const EmbedVideo = (props : EmbedVideoProps) => {
         title={title}
         allow={allow}
       />
-    </>
   ) : null
 }
