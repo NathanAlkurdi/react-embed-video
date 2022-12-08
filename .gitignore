@@ -132,3 +132,6 @@ dist
 !.yarn/versions
 !.yarn/cache
 .pnp.*
+
+# storybook
+storybook-static
